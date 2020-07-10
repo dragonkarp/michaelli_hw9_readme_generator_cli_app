@@ -1,4 +1,5 @@
-const generateMarkdown = require("./generateMarkdown.js")
+const generateMarkdown = require("./generateMarkdown.js");
+const inquirer = require("inquirer");
 
 const questions = [
     "Give your README a badge.",
@@ -11,13 +12,17 @@ const questions = [
     "Who is contributing to this project?",
     "How do you test the project?",
     "QUESTIONS??"
-];
+]
+
+const [badge, name, description, contents, installation, 
+       usage, license, contributors, tests, ques] = questions
 
 function writeToFile(fileName, data) {
+    
 }
 
 function init() {
 
 }
 
-init();
+init()
