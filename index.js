@@ -1,5 +1,6 @@
-const generateMarkdown = require("./generateMarkdown.js");
+//const generateMarkdown = require("./generateMarkdown.js");
 const inquirer = require("inquirer");
+const fs = require("fs")
 
 const questions = [
     "Give your README a badge.",
@@ -17,12 +18,63 @@ const questions = [
 const [badge, name, description, contents, installation, 
        usage, license, contributors, tests, ques] = questions
 
-function writeToFile(fileName, data) {
-    
-}
+// function writeToFile(fileName, data) {
+
+// }
 
 function init() {
-
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "badge",
+            message: badge
+        },
+        {
+            type: "input",
+            name: "name",
+            message: name
+        },
+        {
+            type: "input",
+            name: "description",
+            message: description
+        },
+        {
+            type: "input",
+            name: "contents",
+            message: contents
+        },
+        {
+            type: "input",
+            name: "installation",
+            message: installation
+        },
+        {
+            type: "input",
+            name: "usage",
+            message: usage
+        },
+        {
+            type: "input",
+            name: "license",
+            message: license
+        },
+        {
+            type: "input",
+            name: "contributors",
+            message: contributors
+        },
+        {
+            type: "input",
+            name: "tests",
+            message: tests
+        },
+        {
+            type: "input",
+            name: "ques",
+            message: ques
+        }
+    ])
 }
 
 init()
