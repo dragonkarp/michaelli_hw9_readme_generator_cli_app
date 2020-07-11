@@ -7,11 +7,6 @@ const util = require("util")
 
 const questions = [
     {
-        message: "Give your README a badge.",
-        name:"badge",
-        type:"input"
-    },
-    {
         message: "What is the title of your project?",
         name:"project",
         type:"input"
@@ -19,11 +14,6 @@ const questions = [
     {
         message: "Describe your project.",
         name:"description",
-        type:"input"
-    },
-    {
-        message: "List the table of contents. Hit enter with every entry.",
-        name:"contents",
         type:"input"
     },
     {
@@ -56,9 +46,14 @@ const questions = [
         name:"email",
         type:"input"
     },
+    {
+        message: "Provide a link to your profile picture.",
+        name:"photo",
+        type:"input"
+    }
 ]
 
-function makeReadMe(answers) {
+function writeToFile(answers) {
     const actualRM = generateMarkdown(answers)
     fs.writeFile("README.md", actualRM, "utf-8", err => {
         if (err) {
@@ -70,7 +65,7 @@ function makeReadMe(answers) {
 function init() {
     inquirer.prompt(questions)
     .then((answer) => {
-        makeReadMe(answer)
+        writeToFile(answer)
     })
 }
 
